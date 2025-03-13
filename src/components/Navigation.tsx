@@ -24,21 +24,21 @@ export default function Navigation() {
             </Link>
             <div className="hidden md:flex items-center space-x-4">
               <Link
-                to="/speakers"
+                to="/speakerportal"
                 className="flex items-center space-x-2 text-gray-600 hover:text-blue-500"
               >
                 <Mic2 size={20} />
                 <span>Speakers</span>
               </Link>
               <Link
-                to="/volunteers"
+                to="/volunteermanagement"
                 className="flex items-center space-x-2 text-gray-600 hover:text-blue-500"
               >
                 <Users size={20} />
                 <span>Volunteers</span>
               </Link>
               <Link
-                to="/vendors"
+                to="/vendormanagement"
                 className="flex items-center space-x-2 text-gray-600 hover:text-blue-500"
               >
                 <Store size={20} />
