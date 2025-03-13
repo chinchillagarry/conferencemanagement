@@ -89,9 +89,12 @@ export default function Dashboard() {
             </button>
           </Link>
 
+          <Link to= "/speakers">
             <button className="p-4 bg-orange-50 rounded-lg text-orange-700 hover:bg-orange-100 transition-colors">
               View Schedule
             </button>
+          </Link>
+
           </div>
         </div>
       </div>
