@@ -1,6 +1,7 @@
 import React from 'react';
 import { useAuthStore } from '../store/authStore';
 import { Calendar, Users, Store, Mic2 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function Dashboard() {
   const { user } = useAuthStore();
@@ -69,18 +70,31 @@ export default function Dashboard() {
             Quick Actions
           </h2>
           <div className="grid grid-cols-2 gap-4">
+          <Link to="/speakers">
             <button className="p-4 bg-blue-50 rounded-lg text-blue-700 hover:bg-blue-100 transition-colors">
               Upload Presentation
             </button>
+            </Link>
+
+          <Link to= "/volunteers">
             <button className="p-4 bg-green-50 rounded-lg text-green-700 hover:bg-green-100 transition-colors">
               Assign Task
             </button>
+         </Link>
+
+
+          <Link to= "/vendors">
             <button className="p-4 bg-purple-50 rounded-lg text-purple-700 hover:bg-purple-100 transition-colors">
               Add Vendor
             </button>
+          </Link>
+
+          <Link to= "/speakers">
             <button className="p-4 bg-orange-50 rounded-lg text-orange-700 hover:bg-orange-100 transition-colors">
               View Schedule
             </button>
+          </Link>
+
           </div>
         </div>
       </div>

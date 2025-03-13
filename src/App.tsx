@@ -8,6 +8,8 @@ import Dashboard from './components/Dashboard';
 import SpeakerPortal from './components/SpeakerPortal';
 import VolunteerManagement from './components/VolunteerManagement';
 import VendorManagement from './components/VendorManagement';
+import AddVendor from './components/AddVendor';
+import AddVolunteer from './components/AddVolunteer';
 
 function App() {
   const { setSession, loading } = useAuthStore();
@@ -55,6 +57,21 @@ function App() {
                 <VolunteerManagement />
               </ProtectedRoute>
             } />
+
+            <Route path="/addvendor" element={
+              <ProtectedRoute>
+                <AddVendor />
+              </ProtectedRoute>
+            } />
+
+            <Route path="/addvolunteer" element={
+              <ProtectedRoute>
+                <AddVolunteer />
+              </ProtectedRoute>
+            } />
+            
+
+
             <Route path="/vendors" element={
               <ProtectedRoute>
                 <VendorManagement />
