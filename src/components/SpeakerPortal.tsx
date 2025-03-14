@@ -13,6 +13,15 @@ export default function SpeakerPortal() {
     // TODO: Implement file upload and presentation creation
   };
 
+
+  function deletePres (fn: (a: string) => void){
+    fn("Hello world!")
+    //file is the name
+    //replace with deleting file, what is file type
+    //make function for file type also for upload, onlick
+    
+  }
+
   return (
     <div className="space-y-6">
       <div className="bg-white rounded-lg shadow-md p-6">
@@ -84,6 +93,7 @@ export default function SpeakerPortal() {
                 className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
               >
                 Upload Presentation
+                
               </button>
             </form>
           </div>
@@ -104,6 +114,7 @@ export default function SpeakerPortal() {
               </div>
               <button className="text-red-600 hover:text-red-700">
                 <Trash2 className="h-5 w-5" />
+                
               </button>
             </div>
           </div>

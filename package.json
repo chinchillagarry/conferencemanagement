@@ -7,7 +7,10 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+
+    "start": "react-scripts start",
+    "functions": "stackblitz-functions start"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.39.7",
@@ -17,6 +20,10 @@
     "react-router-dom": "^6.22.2",
     "zustand": "^4.5.2"
   },
+
+
+  
+
   "devDependencies": {
     "@eslint/js": "^9.9.1",
     "@types/react": "^18.3.5",
