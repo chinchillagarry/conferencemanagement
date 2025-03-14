@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Users, CheckCircle, Clock, AlertCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { createClient } from '@supabase/supabase-js';
+//import { createClient } from '@supabase/supabase-js';
 
-const supabase = createClient('import.meta.env.VITE_SUPABASE_URL', 'import.meta.env.VITE_SUPABASE_ANON_KEY');
+//const supabase = createClient('import.meta.env.VITE_SUPABASE_URL', 'import.meta.env.VITE_SUPABASE_ANON_KEY');
 
 export default function VolunteerManagement() {
   const [selectedArea, setSelectedArea] = useState('all');

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useAuthStore } from '../store/authStore';
 import { Calendar, Users, Store, Mic2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import VolunteerCount from './VolunteerManagement';
+//import VolunteerCount from './VolunteerManagement';
 
 
 export default function Dashboard() {
@@ -10,20 +10,21 @@ export default function Dashboard() {
   //skeleton
   //set up serverless api
   // 
-  const [volunteerCount, setVolunteerCount] = useState<number>(0);
-  useEffect(() => {
-    const fetchVolunteerData = async () => {
-      const response = await fetch('/api/volunteers'); // Example API endpoint
-      const data = await response.json();
-      setVolunteerCount(data.totalVolunteers || 0);
-    };
+  //const [volunteerCount, setVolunteerCount] = useState<number>(0);
+  //useEffect(() => {
+  //  const fetchVolunteerData = async () => {
+  //    const response = await fetch('/api/volunteers'); // Example API endpoint
+   //   const data = await response.json();
+  //    setVolunteerCount(data.totalVolunteers || 0);
+  //  };
 
-    fetchVolunteerData();
-  }, []);
+  //  fetchVolunteerData();
+  //}, []);
 
   const stats = [
     { title: 'Upcoming Presentations', count: 12, icon: Calendar },
-    { title: 'Active Volunteers', count: volunteerCount, icon: Users },
+    //vould be volunteerCount
+    { title: 'Active Volunteers', count: 24 , icon: Users },
     { title: 'Registered Vendors', count: 18, icon: Store },
     { title: 'Total Speakers', count: 15, icon: Mic2 },
   ];
