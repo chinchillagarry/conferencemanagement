@@ -69,7 +69,7 @@ export default function VolunteerManagement() {
             <div className="flex justify-between items-center mb-6">
               <h2 className="text-xl font-semibold text-gray-800">Volunteers</h2>
              
-             <Link to = "addvolunteer"> 
+             <Link to = "/addvolunteer"> 
               <button className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 flex items-center space-x-2">
                 <Users className="h-5 w-5" />
                 <span>Add Volunteer</span>
