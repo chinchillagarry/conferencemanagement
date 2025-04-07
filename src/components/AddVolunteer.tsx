@@ -1,5 +1,7 @@
 
 import React from 'react';
+import { useState } from "react";
+
 
 const AddVolunteer: React.FC = () => {
   return (
@@ -9,6 +11,28 @@ const AddVolunteer: React.FC = () => {
       {/* Add your form or content here */}
     </div>
   );
+ 
+  interface signUpVendorState{
+    companyName: string;
+    emailName: string;
+    numberName: string;
+    contactName: string;
+
+  }
+
+  const [formData, setFormData] = useState<signUpVendorState>({
+    companyName: '',
+    emailName: '',
+    numberName: '',
+    contactName: ''
+
+  })
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const {name, value} = e.target;
+    setFormData(prevData => ({...prevData, [name]: value}))
+  }
+
 }
 
 export default AddVolunteer;
