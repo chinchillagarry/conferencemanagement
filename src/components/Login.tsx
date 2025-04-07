@@ -18,7 +18,7 @@ export default function Login() {
     try {
       if (isSignUp) {
         await signUp(email, password);
-        alert('Please check your email to confirm your account');
+        alert('Thank you for signing up! Please return to the login.');
       } else {
         await signIn(email, password);
         navigate('/dashboard');
