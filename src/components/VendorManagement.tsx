@@ -10,11 +10,13 @@ export default function VendorManagement() {
 
   const [vendors, setVendors] = useState<any[]>([]);
 
-  useEffect(() => {
-    const fetchVendors = async () => {
-      const { data } = await supabase.from('vendors').select('*');
+  const fetchVendors = async () => {
+    const { data } = await supabase.from('vendors').select('*');
     setVendors(data || []);
-    };
+  };
+
+  useEffect(() => {
+    
   
     fetchVendors();
   }, []);
@@ -71,6 +73,13 @@ export default function VendorManagement() {
 
             </Link>
 
+            <button
+              onClick={fetchVendors}
+              className="inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md shadow-sm text-gray-700 bg-white hover:bg-gray-100"
+              >
+           Refresh
+            </button>
+
           </div>
         </div>
 
@@ -96,8 +105,8 @@ export default function VendorManagement() {
               </tr>
             </thead>
             <tbody className="bg-white divide-y divide-gray-200">
-              {vendors.map((vendor) => (
-                <tr key={vendor.id}>
+              {vendors.map((vendor, index) => (
+                <tr key={index}>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div className="text-sm font-medium text-gray-900">
                       {vendor.name}
