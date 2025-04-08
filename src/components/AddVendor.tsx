@@ -40,8 +40,9 @@ const AddVendor: React.FC = () => {
         {
           name: formData.companyName,
           email: formData.emailName,
-          booth_number: formData.numberName,
-          contact_person: formData.contactName,
+          boothNumber: '',
+          contactName: formData.contactName,
+          numberName: formData.numberName,
           status: 'pending'
         }
       ]);
@@ -53,7 +54,7 @@ const AddVendor: React.FC = () => {
   return (
     <div className="p-6 bg-white rounded-lg shadow-md">
       <h1 className="text-2xl font-semibold text-gray-800 mb-4">Add Volunteer</h1>
-      <form>
+      <form onSubmit={handleSubmit}>
       <input
           name="companyName"
           value={formData.companyName}
