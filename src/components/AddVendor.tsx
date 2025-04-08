@@ -1,4 +1,8 @@
 import React from 'react';
+import { supabase } from '../lib/supabase';
+import { useNavigate } from 'react-router-dom';
+
+
 
 
 import { useState } from "react";
@@ -21,11 +25,30 @@ const AddVendor: React.FC = () => {
     contactName: ''
 
   })
+  
+  const navigate = useNavigate();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const {name, value} = e.target;
-    setFormData(prevData => ({...prevData, [name]: value}))
-    }
+    setFormData(prevData => ({...prevData, [name]: value}));
+    };
+
+    const handleSubmit = async (e: React.FormEvent) => {
+      e.preventDefault();
+  
+      await supabase.from('vendors').insert([
+        {
+          name: formData.companyName,
+          email: formData.emailName,
+          booth_number: formData.numberName,
+          contact_person: formData.contactName,
+          status: 'pending'
+        }
+      ]);
+  
+      navigate('/vendor-management');
+    }; 
+  
 
   return (
     <div className="p-6 bg-white rounded-lg shadow-md">

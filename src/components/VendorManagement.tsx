@@ -1,22 +1,24 @@
 import React, { useState } from 'react';
+import { useEffect } from 'react';
 import { Store, Search, Filter } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { supabase } from '../lib/supabase';
 
 export default function VendorManagement() {
   const [searchTerm, setSearchTerm] = useState('');
   const [statusFilter, setStatusFilter] = useState('all');
 
-  const vendors = [
-    {
-      id: 1,
-      name: 'Tech Solutions Inc.',
-      contactPerson: 'Jane Smith',
-      email: 'jane@techsolutions.com',
-      boothNumber: 'A12',
-      status: 'approved',
-    },
-    // Add more mock data as needed
-  ];
+  const [vendors, setVendors] = useState<any[]>([]);
+
+  useEffect(() => {
+    const fetchVendors = async () => {
+      const { data } = await supabase.from('vendors').select('*');
+    setVendors(data || []);
+    };
+  
+    fetchVendors();
+  }, []);
+  
 
   return (
     <div className="space-y-6">
