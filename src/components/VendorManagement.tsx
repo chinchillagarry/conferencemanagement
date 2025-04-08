@@ -109,14 +109,14 @@ export default function VendorManagement() {
                 <tr key={index}>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div className="text-sm font-medium text-gray-900">
-                      {vendor.name}
+                      {vendor.companyName}
                     </div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div className="text-sm text-gray-900">
-                      {vendor.contactPerson}
+                      {vendor.contactName}
                     </div>
-                    <div className="text-sm text-gray-500">{vendor.email}</div>
+                    <div className="text-sm text-gray-500">{vendor.emailName}</div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div className="text-sm text-gray-900">
