@@ -35,25 +35,28 @@ const AddVendor: React.FC = () => {
 
     const handleSubmit = async (e: React.FormEvent) => {
       e.preventDefault();
-  
+      console.log(formData); 
+      
       await supabase.from('vendors').insert([
         {
-          name: formData.companyName,
-          email: formData.emailName,
-          boothNumber: '',
+          companyName: formData.companyName,
+          emailName: formData.emailName,
           contactName: formData.contactName,
           numberName: formData.numberName,
           status: 'pending'
         }
       ]);
   
+
+     
+
       navigate('/vendor-management');
     }; 
   
 
   return (
     <div className="p-6 bg-white rounded-lg shadow-md">
-      <h1 className="text-2xl font-semibold text-gray-800 mb-4">Add Volunteer</h1>
+      <h1 className="text-2xl font-semibold text-gray-800 mb-4">Add Vendor</h1>
       <form onSubmit={handleSubmit}>
       <input
           name="companyName"
