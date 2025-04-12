@@ -16,12 +16,9 @@ export default function VendorManagement() {
   };
 
   useEffect(() => {
-    
-  
     fetchVendors();
   }, []);
   
-
   return (
     <div className="space-y-6">
       <div className="bg-white rounded-lg shadow-md p-6">
@@ -67,10 +64,8 @@ export default function VendorManagement() {
             <Link to ="/addvendor" >
             <button className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
               <Store className="h-5 w-5 mr-2" />
-              Add Vendor 
-              
+              Add Vendor   
             </button>
-
             </Link>
 
             <button

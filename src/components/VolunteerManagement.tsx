@@ -3,7 +3,11 @@ import { Users } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { supabase } from '../lib/supabase';
 
+
+
 export default function VolunteerManagement() {
+  
+  
   const [volunteers, setVolunteers] = useState<any[]>([]);
 
   const fetchVolunteers = async () => {
@@ -31,6 +35,13 @@ export default function VolunteerManagement() {
               <span>Add Volunteer</span>
             </button>
           </Link>
+
+          <button
+              onClick={fetchVolunteers}
+              className="inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md shadow-sm text-gray-700 bg-white hover:bg-gray-100"
+              >
+              Refresh
+            </button>
         </div>
 
         <div className="overflow-x-auto">
@@ -48,9 +59,6 @@ export default function VolunteerManagement() {
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                   Email
-                </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Actions
                 </th>
               </tr>
             </thead>
@@ -76,8 +84,8 @@ export default function VolunteerManagement() {
               ))}
               {volunteers.length === 0 && (
                 <tr>
-                  <td colSpan={5} className="px-6 py-4 text-center text-sm text-gray-500">
-                    No volunteers found.
+                  <td colSpan={4} className="px-6 py-4 text-center text-sm text-gray-500">
+                    No volunteers found, add some now!
                   </td>
                 </tr>
               )}
