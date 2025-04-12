@@ -62,7 +62,6 @@ CREATE TABLE volunteers (
   id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
   profile_id uuid REFERENCES profiles NOT NULL,
   area text NOT NULL,
-  status text NOT NULL CHECK (status IN ('active', 'inactive')),
   created_at timestamptz DEFAULT now()
 );
 
@@ -72,7 +71,6 @@ CREATE TABLE tasks (
   volunteer_id uuid REFERENCES volunteers NOT NULL,
   title text NOT NULL,
   description text,
-  status text NOT NULL CHECK (status IN ('pending', 'in_progress', 'completed')),
   created_at timestamptz DEFAULT now()
 );
 
