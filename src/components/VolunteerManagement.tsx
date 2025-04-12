@@ -84,17 +84,17 @@ export default function VolunteerManagement() {
             </div>
 
             <div className="space-y-4">
-              {volunteers.map((volunteer) => (
+              {volunteers.map((volunteer, index) => (
                 <div
-                  key={volunteer.id}
+                  key={volunteer.firstName}
                   className="border rounded-lg p-4 space-y-4"
                 >
                   <div className="flex justify-between items-start">
                     <div>
                       <h3 className="font-medium text-gray-800">
-                        {volunteer.name}
+                        {volunteer.lastName}
                       </h3>
-                      <p className="text-sm text-gray-500">{volunteer.area}</p>
+                      <p className="text-sm text-gray-500">{volunteer.numberName}</p>
                     </div>
                     <span
                       className={`px-2 py-1 rounded-full text-sm ${
@@ -103,7 +103,7 @@ export default function VolunteerManagement() {
                           : 'bg-gray-100 text-gray-800'
                       }`}
                     >
-                      {volunteer.status}
+                      {volunteer.emailName}
                     </span>
                   </div>
 
