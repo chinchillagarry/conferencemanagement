@@ -6,7 +6,7 @@ import { supabase } from '../lib/supabase';
 
 
   interface signUpVolunteerState {
-  first_name: string;
+  firstName: string;
   lastName: string;
   numberName: string;
   emailName: string;
@@ -16,7 +16,7 @@ import { supabase } from '../lib/supabase';
 const AddVolunteer: React.FC = () => {
 
   const [formData, setFormData] = useState<signUpVolunteerState>({
-    first_name: '',
+    firstName: '',
     lastName: '',
     numberName: '',
     emailName: ''
@@ -36,7 +36,7 @@ const AddVolunteer: React.FC = () => {
       
       await supabase.from('volunteers').insert([
         {
-          first_name: formData.first_name,
+          firstName: formData.firstName,
           lastName: formData.lastName,
           numberName: formData.numberName,
           emailName: formData.emailName,
@@ -55,8 +55,8 @@ const AddVolunteer: React.FC = () => {
       <h1 className="text-2xl font-semibold text-gray-800 mb-4">Add Volunteer</h1>
       <form onSubmit={handleSubmit}>
       <input
-          name="first_name"
-          value={formData.first_name}
+          name="firstName"
+          value={formData.firstName}
           onChange={handleChange}
           placeholder="First Name"
           className="block w-full p-2 mb-3 border rounded"
