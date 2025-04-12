@@ -17,10 +17,12 @@ export default function Dashboard() {
       const { data: volunteers } = await supabase.from('volunteers').select('id');
       const { data: vendors } = await supabase.from('vendors').select('id');
       const { data: speakers } = await supabase.from('speakers').select('id');
+      //just selecting/ counting the heads! Optimal.
 
       setVolunteerCount(volunteers?.length || 0);
       setVendorCount(vendors?.length || 0);
       setSpeakerCount(speakers?.length || 0);
+
     };
 
     fetchCounts();
@@ -70,14 +72,6 @@ export default function Dashboard() {
             Recent Activity
           </h2>
           <div className="space-y-4">
-            <div className="border-l-4 border-blue-500 pl-4">
-              <p className="text-gray-800">New presentation uploaded</p>
-              <p className="text-sm text-gray-500">2 hours ago</p>
-            </div>
-            <div className="border-l-4 border-green-500 pl-4">
-              <p className="text-gray-800">Volunteer task completed</p>
-              <p className="text-sm text-gray-500">4 hours ago</p>
-            </div>
             <div className="border-l-4 border-purple-500 pl-4">
               <p className="text-gray-800">New vendor registration</p>
               <p className="text-sm text-gray-500">6 hours ago</p>
@@ -96,12 +90,6 @@ export default function Dashboard() {
             </button>
             </Link>
 
-          <Link to= "/volunteers">
-            <button className="p-4 bg-green-50 rounded-lg text-green-700 hover:bg-green-100 transition-colors">
-              Assign Task
-            </button>
-         </Link>
-
 
           <Link to= "/vendors">
             <button className="p-4 bg-purple-50 rounded-lg text-purple-700 hover:bg-purple-100 transition-colors">
@@ -109,9 +97,9 @@ export default function Dashboard() {
             </button>
           </Link>
 
-          <Link to= "/speakers">
+          <Link to= "/AddVolunteer">
             <button className="p-4 bg-orange-50 rounded-lg text-orange-700 hover:bg-orange-100 transition-colors">
-              View Schedule
+              Add Volunteer
             </button>
           </Link>
 
