@@ -27,7 +27,7 @@ export default function Dashboard() {
   }, []);
 
   const stats = [
-    { title: 'Upcoming Presentations', count: 12, icon: Calendar },
+    { title: 'Upcoming Presentations', count: 0, icon: Calendar },
     { title: 'Active Volunteers', count: volunteerCount, icon: Users },
     { title: 'Registered Vendors', count: vendorCount, icon: Store },
     { title: 'Total Speakers', count: speakerCount, icon: Mic2 },
