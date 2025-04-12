@@ -1,25 +1,31 @@
 import React, { useState } from 'react';
+import { useEffect } from 'react';
 import { Users, CheckCircle, Clock, AlertCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { supabase } from '../lib/supabase';
 
 export default function VolunteerManagement() {
   const [selectedArea, setSelectedArea] = useState('all');
 
   const areas = ['Registration', 'Technical Support', 'Hospitality', 'Security'];
+  const [volunteers, setVolunteers] = useState<any[]>([]);
+
+  const fetchVolunteers = async () => {
+    const { data } = await supabase.from('volunteers').select('*');
+    setVolunteers(data || []);
+  };
+
+  useEffect(() => {
+    
   
-  const volunteers = [
-    {
-      id: 1,
-      name: 'John Doe',
-      area: 'Registration',
-      status: 'active',
-      tasks: [
-        { id: 1, title: 'Morning Check-in', status: 'completed' },
-        { id: 2, title: 'Badge Distribution', status: 'in_progress' },
-      ],
-    },
-    // Add more mock data as needed
-  ];
+    fetchVolunteers();
+  }, []);
+
+
+
+
+
+  
 
   return (
     <div className="space-y-6">
@@ -101,42 +107,16 @@ export default function VolunteerManagement() {
                     </span>
                   </div>
 
-                  <div className="space-y-2">
-                    {volunteer.tasks.map((task) => (
-                      <div
-                        key={task.id}
-                        className="flex items-center justify-between bg-gray-50 p-3 rounded-md"
-                      >
-                        <div className="flex items-center space-x-3">
-                          {task.status === 'completed' ? (
-                            <CheckCircle className="h-5 w-5 text-green-500" />
-                          ) : task.status === 'in_progress' ? (
-                            <Clock className="h-5 w-5 text-yellow-500" />
-                          ) : (
-                            <AlertCircle className="h-5 w-5 text-red-500" />
-                          )}
-                          <span className="text-gray-700">{task.title}</span>
-                        </div>
-                        <span
-                          className={`text-sm ${
-                            task.status === 'completed'
-                              ? 'text-green-600'
-                              : task.status === 'in_progress'
-                              ? 'text-yellow-600'
-                              : 'text-red-600'
-                          }`}
-                        >
-                          {task.status}
-                        </span>
+                  
+                        
                       </div>
                     ))}
                   </div>
                 </div>
-              ))}
+           
             </div>
           </div>
         </div>
-      </div>
-    </div>
+      
   );
 }

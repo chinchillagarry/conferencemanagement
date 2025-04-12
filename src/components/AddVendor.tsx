@@ -1,7 +1,7 @@
 import React from 'react';
 import { supabase } from '../lib/supabase';
 import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+
 
 
 
@@ -50,7 +50,7 @@ const AddVendor: React.FC = () => {
 
      
 
-      navigate('/vendor-management');
+      navigate('/VendorManagement');
     }; 
   
 
@@ -87,11 +87,10 @@ const AddVendor: React.FC = () => {
           className="block w-full p-2 mb-3 border rounded"
         />
 
-        <Link to ="/VendorManagement" >
+        
         <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded">
           Submit
         </button>
-        </Link>
       </form>
     </div>
   );

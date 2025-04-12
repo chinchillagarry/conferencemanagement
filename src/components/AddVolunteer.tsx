@@ -1,6 +1,8 @@
 
 import React from 'react';
 import { useState } from "react";
+import { useNavigate } from 'react-router-dom';
+import { supabase } from '../lib/supabase';
 
 
   interface signUpVolunteerState {
@@ -20,16 +22,38 @@ const AddVolunteer: React.FC = () => {
     emailName: ''
 
   })
+  
+  const navigate = useNavigate();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const {name, value} = e.target;
     setFormData(prevData => ({...prevData, [name]: value}))
     }
 
+    const handleSubmit = async (e: React.FormEvent) => {
+      e.preventDefault();
+      console.log(formData); 
+      
+      await supabase.from('volunteers').insert([
+        {
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          numberName: formData.numberName,
+          emailName: formData.emailName,
+        }
+      ]);
+  
+
+     
+
+      navigate('/VolunteerManagement');
+    }; 
+
+
   return (
     <div className="p-6 bg-white rounded-lg shadow-md">
       <h1 className="text-2xl font-semibold text-gray-800 mb-4">Add Volunteer</h1>
-      <form>
+      <form onSubmit={handleSubmit}>
       <input
           name="firstName"
           value={formData.firstName}
