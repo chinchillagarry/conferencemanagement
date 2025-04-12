@@ -85,6 +85,7 @@ export default function VolunteerManagement() {
 
             <div className="space-y-4">
               {volunteers.map((volunteer, index) => (
+                <tr key={index}>
                 <div
                   key={volunteer.first_name}
                   className="border rounded-lg p-4 space-y-4"
@@ -105,12 +106,16 @@ export default function VolunteerManagement() {
                     >
                       {volunteer.emailName}
                     </span>
+                    
                   </div>
+
 
                   
                         
                       </div>
+                      </tr>
                     ))}
+                    
                   </div>
                 </div>
            
