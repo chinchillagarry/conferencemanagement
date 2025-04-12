@@ -2,15 +2,35 @@ import React from 'react';
 import { useAuthStore } from '../store/authStore';
 import { Calendar, Users, Store, Mic2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { supabase } from '../lib/supabase';
 
 export default function Dashboard() {
   const { user } = useAuthStore();
 
+  const [volunteerCount, setVolunteerCount] = useState(0);
+  const [vendorCount, setVendorCount] = useState(0);
+  const [speakerCount, setSpeakerCount] = useState(0);
+
+  useEffect(() => {
+    const fetchCounts = async () => {
+      const { data: volunteers } = await supabase.from('volunteers').select('id');
+      const { data: vendors } = await supabase.from('vendors').select('id');
+      const { data: speakers } = await supabase.from('speakers').select('id');
+
+      setVolunteerCount(volunteers?.length || 0);
+      setVendorCount(vendors?.length || 0);
+      setSpeakerCount(speakers?.length || 0);
+    };
+
+    fetchCounts();
+  }, []);
+
   const stats = [
     { title: 'Upcoming Presentations', count: 12, icon: Calendar },
-    { title: 'Active Volunteers', count: 24, icon: Users },
-    { title: 'Registered Vendors', count: 18, icon: Store },
-    { title: 'Total Speakers', count: 15, icon: Mic2 },
+    { title: 'Active Volunteers', count: volunteerCount, icon: Users },
+    { title: 'Registered Vendors', count: vendorCount, icon: Store },
+    { title: 'Total Speakers', count: speakerCount, icon: Mic2 },
   ];
 
   return (
