@@ -1,10 +1,6 @@
 import React from 'react';
 import { supabase } from '../lib/supabase';
 import { useNavigate } from 'react-router-dom';
-
-
-
-
 import { useState } from "react";
 
 
@@ -49,7 +45,6 @@ const AddVendor: React.FC = () => {
   
 
      
-
       navigate('/VendorManagement');
     }; 
   

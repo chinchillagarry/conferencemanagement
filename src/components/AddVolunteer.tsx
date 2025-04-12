@@ -12,7 +12,6 @@ import { supabase } from '../lib/supabase';
   emailName: string;
   }
 
-
 const AddVolunteer: React.FC = () => {
 
   const [formData, setFormData] = useState<signUpVolunteerState>({
