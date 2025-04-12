@@ -86,7 +86,7 @@ export default function VolunteerManagement() {
             <div className="space-y-4">
               {volunteers.map((volunteer, index) => (
                 <div
-                  key={volunteer.firstName}
+                  key={volunteer.first_name}
                   className="border rounded-lg p-4 space-y-4"
                 >
                   <div className="flex justify-between items-start">
