@@ -83,45 +83,62 @@ export default function VolunteerManagement() {
               </Link>
             </div>
 
-            <div className="space-y-4">
-              {volunteers.map((volunteer, index) => (
-                <tr key={index}>
-                <div
-                  key={volunteer.first_name}
-                  className="border rounded-lg p-4 space-y-4"
-                >
-                  <div className="flex justify-between items-start">
-                    <div>
-                      <h3 className="font-medium text-gray-800">
+
+            <div className="overflow-x-auto">
+              <table className="min-w-full divide-y divide-gray-200">
+                <thead className="bg-gray-50">
+                  <tr>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      First Name
+                    </th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Last Name
+                    </th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Phone
+                    </th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Email
+                    </th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Actions
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="bg-white divide-y divide-gray-200">
+                  {volunteers.map((volunteer, index) => (
+                    <tr key={index}>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                        {volunteer.firstName}
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                         {volunteer.lastName}
-                      </h3>
-                      <p className="text-sm text-gray-500">{volunteer.numberName}</p>
-                    </div>
-                    <span
-                      className={`px-2 py-1 rounded-full text-sm ${
-                        volunteer.status === 'active'
-                          ? 'bg-green-100 text-green-800'
-                          : 'bg-gray-100 text-gray-800'
-                      }`}
-                    >
-                      {volunteer.emailName}
-                    </span>
-                    
-                  </div>
-
-
-                  
-                        
-                      </div>
-                      </tr>
-                    ))}
-                    
-                  </div>
-                </div>
-           
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                        {volunteer.numberName}
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                        {volunteer.emailName}
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-blue-600 hover:text-blue-900">
+                        <button>Edit</button>
+                      </td>
+                    </tr>
+                  ))}
+                  {volunteers.length === 0 && (
+                    <tr>
+                      <td colSpan={5} className="px-6 py-4 text-center text-sm text-gray-500">
+                        No volunteers found.
+                      </td>
+                    </tr>
+                  )}
+                </tbody>
+              </table>
             </div>
+
           </div>
         </div>
-      
+      </div>
+    </div>
   );
 }
