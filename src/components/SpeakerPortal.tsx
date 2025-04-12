@@ -56,7 +56,7 @@ export default function SpeakerPortal() {
 
               <div>
                 <label className="block text-sm font-medium text-gray-700">
-                  Have you emailed your presentation file to your admin?
+                  Have they emailed their presentation in?
                 </label>
                 <textarea
                   value={file}
