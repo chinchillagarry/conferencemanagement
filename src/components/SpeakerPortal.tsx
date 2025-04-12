@@ -5,7 +5,7 @@ import { Upload, FileText, Trash2 } from 'lucide-react';
 export default function SpeakerPortal() {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
-  const [file, setFile] = useState<File | null>(null);
+  const [file, setFile] = useState('');
   const { user } = useAuthStore();
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -18,7 +18,7 @@ export default function SpeakerPortal() {
       <div className="bg-white rounded-lg shadow-md p-6">
         <h1 className="text-2xl font-bold text-gray-800 mb-4">Speaker Portal</h1>
         <p className="text-gray-600">
-          Upload and manage your conference presentations here.
+          Manage your conference presentations here.
         </p>
       </div>
 
@@ -26,7 +26,7 @@ export default function SpeakerPortal() {
         <div className="lg:col-span-2">
           <div className="bg-white rounded-lg shadow-md p-6">
             <h2 className="text-xl font-semibold text-gray-800 mb-4">
-              Upload New Presentation
+              New Presentation
             </h2>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
@@ -56,58 +56,27 @@ export default function SpeakerPortal() {
 
               <div>
                 <label className="block text-sm font-medium text-gray-700">
-                  Presentation File
+                  Have you emailed your presentation file to your admin?
                 </label>
-                <div className="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
-                  <div className="space-y-1 text-center">
-                    <Upload className="mx-auto h-12 w-12 text-gray-400" />
-                    <div className="flex text-sm text-gray-600">
-                      <label className="relative cursor-pointer rounded-md font-medium text-blue-600 hover:text-blue-500">
-                        <span>Upload a file</span>
-                        <input
-                          type="file"
-                          className="sr-only"
-                          onChange={(e) => setFile(e.target.files?.[0] || null)}
-                        />
-                      </label>
-                      <p className="pl-1">or drag and drop</p>
-                    </div>
-                    <p className="text-xs text-gray-500">
-                      PDF, PPTX up to 10MB
-                    </p>
-                  </div>
-                </div>
+                <textarea
+                  value={file}
+                  onChange={(e) => setFile(e.target.value)}
+                  rows={4}
+                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                />
               </div>
 
               <button
                 type="submit"
                 className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
               >
-                Upload Presentation
+                Submit
               </button>
             </form>
           </div>
         </div>
 
-        <div className="bg-white rounded-lg shadow-md p-6">
-          <h2 className="text-xl font-semibold text-gray-800 mb-4">
-            My Presentations
-          </h2>
-          <div className="space-y-4">
-            <div className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
-              <div className="flex items-center space-x-3">
-                <FileText className="h-5 w-5 text-gray-500" />
-                <div>
-                  <p className="font-medium text-gray-800">Opening Keynote</p>
-                  <p className="text-sm text-gray-500">Uploaded 2 days ago</p>
-                </div>
-              </div>
-              <button className="text-red-600 hover:text-red-700">
-                <Trash2 className="h-5 w-5" />
-              </button>
-            </div>
-          </div>
-        </div>
+        
       </div>
     </div>
   );
