@@ -10,6 +10,7 @@ import VolunteerManagement from './components/VolunteerManagement';
 import VendorManagement from './components/VendorManagement';
 import AddVendor from './components/AddVendor';
 import AddVolunteer from './components/AddVolunteer';
+import ScheduleManagement from './components/ScheduleManagement';
 
 function App() {
   const { setSession, loading } = useAuthStore();
@@ -77,6 +78,14 @@ function App() {
                 <VendorManagement />
               </ProtectedRoute>
             } />
+
+            <Route path="/ScheduleManagement" element={
+              <ProtectedRoute>
+                <ScheduleManagement />
+              </ProtectedRoute>
+            } />
+
+            
             <Route path="/" element={<Navigate to="/dashboard" replace />} />
           </Routes>
         </div>

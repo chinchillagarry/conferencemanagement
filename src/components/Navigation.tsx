@@ -20,7 +20,7 @@ export default function Navigation() {
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center space-x-8">
             <Link to="/dashboard" className="text-xl font-bold text-gray-800">
-              ConferenceHub
+              ConferenceCow
             </Link>
             <div className="hidden md:flex items-center space-x-4">
               <Link
@@ -44,6 +44,15 @@ export default function Navigation() {
                 <Store size={20} />
                 <span>Vendors</span>
               </Link>
+
+              <Link
+                to="/ScheduleManagement"
+                className="flex items-center space-x-2 text-gray-600 hover:text-blue-500"
+              >
+                <Users size={20} />
+                <span>Schedule</span>
+              </Link>
+
             </div>
           </div>
           <button
