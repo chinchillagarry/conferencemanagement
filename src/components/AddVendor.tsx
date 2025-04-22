@@ -5,6 +5,7 @@ import { useState } from "react";
 
 
   interface signUpVendorState {
+    
   companyName: string;
   emailName: string;
   numberName: string;
