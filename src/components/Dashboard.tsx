@@ -11,12 +11,13 @@ export default function Dashboard() {
   const [volunteerCount, setVolunteerCount] = useState(0);
   const [vendorCount, setVendorCount] = useState(0);
   const [speakerCount, setSpeakerCount] = useState(0);
+  
 
   useEffect(() => {
     const fetchCounts = async () => {
       const { data: volunteers } = await supabase.from('volunteers').select('id');
       const { data: vendors } = await supabase.from('vendors').select('id');
-      const { data: speakers } = await supabase.from('speakers').select('id');
+      const { data: speakers } = await supabase.from('presentations').select('id');
       //just selecting/ counting the heads! Optimal.
 
       setVolunteerCount(volunteers?.length || 0);
