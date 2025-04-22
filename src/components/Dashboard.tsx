@@ -7,7 +7,8 @@ import { supabase } from '../lib/supabase';
 
 export default function Dashboard() {
   const { user } = useAuthStore();
-
+  
+ 
   const [volunteerCount, setVolunteerCount] = useState(0);
   const [vendorCount, setVendorCount] = useState(0);
   const [speakerCount, setSpeakerCount] = useState(0);
